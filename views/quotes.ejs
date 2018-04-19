@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+        * { margin: auto;
+            padding: auto;
+            height: 50px;
+            width: 400px;
+            }
+        </style>
+        <script type="text/javascript" src="./server.js"></script>
+    </head>
+    <body>
+        <% if(typeof(error) != 'undefined'){ %>
+            <%  for(var x in errors){ %>
+                <h3> <%= errors[x].message %> </h3>
+            <% } %>
+        <%  }  %>
+        <% for (idx in quotes) { %>
+            <p style="text-align: center; margin: 10px; position: relative; left: 0px; width: 500 px; padding 5px; margin-left: auto">User:<%= quotes[idx].user %> <span style="display:inline-block; width: 60px;"></span> Quote:<%= quotes[idx].quote %> </p>
+        <% } %>
+         <a href="/">Back To Form </a>
+    </body>
+</html>

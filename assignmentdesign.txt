@@ -1,0 +1,62 @@
+Build a simple app that allows users to ADD QUOTES TO DATABASE
+and DISPLAY them on a SEPARATE PAGE.
+
+
+The 'add my quote' BUTTON should add the user's quote to the database, but the 'skip to quotes' button should take the user directly to the main page. href
+
+Use the following URLs for your project:
+
+    - GET '/' for the screen on the left (welcome to quoting dojo + form to fill out with 2 buttons)
+
+    -- POST '/quotes' for the method of the form to make a new quote
+
+    -- GET '/quotes' for the screen on the right (WHERE ALL THE WUOTES ARE FUCKING RENDERED)
+
+    The mock-up below says to use $_SESSION for this exercise. SINCE WE'RE USING A FRAMEWORK, WE DON'T HAVE OT DO THIS WITH SESSION.
+
+    Instead, when you create a new quote if there are errors in the .save() method, you should RENDER A VIEW AND PASS ERRORS TO THAT VIEW INSTEAD OF REDIRECTING.
+    That way we won't lose our data and thereby not need to use a session variable.
+
+
+--  index.ejs --
+
+    Start with html form with 2 inputs
+        form path = '/quotes'
+     -- quote
+     -- submit to quotes
+
+     button href to quotes which will be defined in the GET '/quotes' function
+
+
+    --  <% if(typeof(error) != 'undefined'){ %>
+            <%  for(var x in errors){ %>
+                <h3> <%= errors[x].message %> </h3>
+            <% } %>
+        <%  }  %>
+
+
+
+
+--  server.js --
+
+    quote as a schema and model
+    to be used as a constructor
+
+    First GET ('/') will render('index')
+
+    First POST ('/quotes')
+
+    create an instance of this in the POST request
+    var quote = new Quote(req.body);
+    quote.save(function(err){
+        if(err){
+        console.log("ERROR BITCH");
+        } else {
+        console.log("GOOD BBY");
+        }
+    })
+
+    create an instance of this in the GET request
+    Quote.find({}, function(err, quote){
+
+    })

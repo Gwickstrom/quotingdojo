@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript" src="./server.js"></script>
+    </head>
+    <body>
+        <form action="/quotes" method='post'>
+            User: <input type="text" name="user" value="<%= quotes.user %>">
+            Quote: <input type="textarea" name="quote" value="<%= quotes.quote %>">
+             <input type="submit" value="Add new quote">
+        </form>
+            <a href="/quotes">Go to quotes</a>
+    </body>
+</html>
